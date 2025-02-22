@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 
 defined( 'ABSPATH' ) || exit;
 /**
@@ -172,7 +172,7 @@ class Install {
      */
     private static function stock_manager_data_migrate() {
 
-        $current_version = SM()->version;
+        $current_version = Notifima()->version;
         $previous_version = get_option( "woo_stock_manager_version", "" );
 
         // Default messages for settings array.
@@ -182,29 +182,29 @@ class Install {
             'is_enable_no_interest' => false, 
             'is_double_optin' => false, 
             'is_remove_admin_email' => false, 
-            'double_opt_in_success' => SM()->default_value['double_opt_in_success'], 
-            'shown_interest_text' => SM()->default_value['shown_interest_text'], 
+            'double_opt_in_success' => Notifima()->default_value['double_opt_in_success'], 
+            'shown_interest_text' => Notifima()->default_value['shown_interest_text'], 
             'additional_alert_email' => get_option( 'admin_email' ),
             'is_guest_subscriptions_enable' => ['is_guest_subscriptions_enable'],
             'lead_time_format'  => 'static',
             
             // Form customization settings
-            'email_placeholder_text' => SM()->default_value['email_placeholder_text'], 
-            'alert_text' => SM()->default_value['alert_text'],
-            'unsubscribe_button_text' => SM()->default_value['unsubscribe_button_text'],
-            'alert_text_color' => SM()->default_value['alert_text_color'], 
-            'customize_btn' => SM()->default_value['customize_btn']
+            'email_placeholder_text' => Notifima()->default_value['email_placeholder_text'], 
+            'alert_text' => Notifima()->default_value['alert_text'],
+            'unsubscribe_button_text' => Notifima()->default_value['unsubscribe_button_text'],
+            'alert_text_color' => Notifima()->default_value['alert_text_color'], 
+            'customize_btn' => Notifima()->default_value['customize_btn']
         ];
         $submit_settings = [
-            'alert_success'  => SM()->default_value['alert_success'], 
-            'alert_email_exist' => SM()->default_value['alert_email_exist'], 
-            'valid_email' => SM()->default_value['valid_email'], 
+            'alert_success'  => Notifima()->default_value['alert_success'], 
+            'alert_email_exist' => Notifima()->default_value['alert_email_exist'], 
+            'valid_email' => Notifima()->default_value['valid_email'], 
             // Translators: This message display user sucessfully unregistered
-            'alert_unsubscribe_message' => SM()->default_value['alert_unsubscribe_message'],
+            'alert_unsubscribe_message' => Notifima()->default_value['alert_unsubscribe_message'],
         ];
         $email_settings = [
-            'ban_email_domain_text' => SM()->default_value['ban_email_domain_text'], 
-            'ban_email_address_text' => SM()->default_value['ban_email_address_text']
+            'ban_email_domain_text' => Notifima()->default_value['ban_email_domain_text'], 
+            'ban_email_address_text' => Notifima()->default_value['ban_email_address_text']
         ];
 
         if ( version_compare( $previous_version, '2.5.0', '<' ) ) {

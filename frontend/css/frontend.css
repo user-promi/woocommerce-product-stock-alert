@@ -28,11 +28,11 @@ h5.subscribe_for_interest_text {
   margin-top: 0.252rem;
 }
 
-.stock-manager-button.alert_loader {
+.notifima-button.alert_loader {
   cursor: not-allowed;
 }
 
-.stock-manager-button.alert_loader:before {
+.notifima-button.alert_loader:before {
   content: "";
   display: inline-block;
   width: 0.63rem;
@@ -45,7 +45,7 @@ h5.subscribe_for_interest_text {
   animation: loading 1s linear infinite;
 }
 
-button.stock-manager-button {
+button.notifima-button {
   margin: 0.315rem;
 }
 

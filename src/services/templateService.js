@@ -46,4 +46,8 @@ const getTemplateData = () => {
     return settings;
 };
 
-export { getTemplateData };
+const getModuleData = () => {
+   const moduleData = require('../template/modules/index').default;
+   return moduleData;
+}
+export { getTemplateData, getModuleData };

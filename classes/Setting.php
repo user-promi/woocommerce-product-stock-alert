@@ -1,11 +1,11 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 
 defined('ABSPATH') || exit;
 
 /**
- * StockManager Setting API class
+ * Notifima Setting API class
  */
 class Setting {
     /**

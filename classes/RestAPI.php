@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -17,13 +17,13 @@ class RestAPI
      * @return void
      */
     public function register_restAPI() {
-        register_rest_route( SM()->rest_namespace, '/save-stockmanager', [
+        register_rest_route( Notifima()->rest_namespace, '/settings', [
             'methods' => \WP_REST_Server::EDITABLE,
             'callback' => [ $this, 'save_stockmanager_setting' ],
             'permission_callback' => [ $this, 'stockmanager_permission' ],
         ] );
 
-        register_rest_route( SM()->rest_namespace, '/stock-notification-form', [
+        register_rest_route( Notifima()->rest_namespace, '/stock-notification-form', [
             'methods' => 'GET',
             'callback' => [ $this, 'render_stock_notification_form' ],
             'permission_callback' => [ $this, 'stockmanager_permission' ],
@@ -31,7 +31,7 @@ class RestAPI
     }
 
     /**
-     * StockManager api permission function.
+     * Notifima api permission function.
      * @return bool
      */
     public function stockmanager_permission() {
@@ -52,11 +52,11 @@ class RestAPI
         $optionname = 'woo_stock_manager_' . $settingsname . '_tab_settings';
 
         // save the settings in database
-        SM()->setting->update_option( $optionname, $get_settings_data );
+        Notifima()->setting->update_option( $optionname, $get_settings_data );
 
         do_action( 'stock_manager_settings_after_save', $settingsname, $get_settings_data );
 
-        $all_details[ 'error' ] = __( 'Settings Saved', 'woocommerce-stock-manager' );
+        $all_details[ 'error' ] = __( 'Settings Saved', 'notifima' );
 
         return $all_details;
     }
@@ -67,7 +67,7 @@ class RestAPI
         // Start output buffering
         ob_start();
 
-        SM()->frontend->display_product_subscription_form(intval($product_id));
+        Notifima()->frontend->display_product_subscription_form(intval($product_id));
         // Return the output
         return rest_ensure_response(['html' => ob_get_clean()]);
     }

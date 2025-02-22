@@ -32,8 +32,8 @@ const Managestock = () => {
       </>
     );
   };
-  const fetchDataUrl   = `${appLocalizer.apiUrl}/stockmanager/v1/get-products`;
-  const segmentDataUrl = `${appLocalizer.apiUrl}/stockmanager/v1/all-products`;
+  const fetchDataUrl   = `${appLocalizer.apiUrl}/notifima/v1/get-products`;
+  const segmentDataUrl = `${appLocalizer.apiUrl}/notifima/v1/all-products`;
   const [data, setData] = useState(null);
   const [headers, setHeaders] = useState([]);
   const [totalProducts, setTotalProducts] = useState();
@@ -124,18 +124,18 @@ const Managestock = () => {
         //If user is pro user he will shown the Inventory Manager Table
         <div className="admin-middle-container-wrapper">
           <div className="title-section">
-            <p>{__("Inventory Manager", "woocommerce-stock-manager")}</p>
+            <p>{__("Inventory Manager", "notifima")}</p>
             <div className="stock-reports-download">
               <button class="import-export-btn">
-                <Link to={"?page=stock-manager#&tab=import"}>
+                <Link to={"?page=notifima#&tab=import"}>
                   <div className="wp-menu-image dashicons-before dashicons-download"></div>
-                  {__("Import", "woocommerce-stock-manager")}
+                  {__("Import", "notifima")}
                 </Link>
               </button>
               <button class="import-export-btn">
-                <Link to={"?page=stock-manager#&tab=export"}>
+                <Link to={"?page=notifima#&tab=export"}>
                   <div className="wp-menu-image dashicons-before dashicons-upload"></div>
-                  {__("Export", "woocommerce-stock-manager")}
+                  {__("Export", "notifima")}
                 </Link>
               </button>
             </div>
@@ -178,13 +178,13 @@ const Managestock = () => {
                   }}
                 >
                   <option value="">
-                    {__("Product Type", "woocommerce-stock-manager")}
+                    {__("Product Type", "notifima")}
                   </option>
                   <option value="Simple">
-                    {__("Simple", "woocommerce-stock-manager")}
+                    {__("Simple", "notifima")}
                   </option>
                   <option value="Variable">
-                    {__("Variable", "woocommerce-stock-manager")}
+                    {__("Variable", "notifima")}
                   </option>
                 </select>
               </div>

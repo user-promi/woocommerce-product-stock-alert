@@ -3,18 +3,18 @@ import { __ } from '@wordpress/i18n';
 export default {
     id: "email",
     priority: 4,
-    name: __("Email Restriction Policies", "woocommerce-stock-manager"),
-    desc: __("Restrict email registrations.", "woocommerce-stock-manager"),
+    name: __("Email Restriction Policies", "notifima"),
+    desc: __("Restrict email registrations.", "notifima"),
     icon: "adminLib-mail",
     proDependent: true,
-    submitUrl: "save-stockmanager",
+    submitUrl: "settings",
     modal: [
         {
             key: "ban_email_domains",
             type: "textarea",
             class: "woo-setting-wpeditor-class",
-            desc: __("Specify email domains that are restricted from subscribing. You can add multiple commma seperated emails.", "woocommerce-stock-manager"),
-            label: __("Block email domains", "woocommerce-stock-manager"),
+            desc: __("Specify email domains that are restricted from subscribing. You can add multiple commma seperated emails.", "notifima"),
+            label: __("Block email domains", "notifima"),
             proSetting: true,
         },
         {
@@ -25,8 +25,8 @@ export default {
         {
             key: "ban_email_domain_text",
             type: "textarea",
-            label: __("Blocked domain alert message", "woocommerce-stock-manager"),
-            desc: __(" Create an alert message for users attempting to subscribe from blocked domains.", "woocommerce-stock-manager"),
+            label: __("Blocked domain alert message", "notifima"),
+            desc: __(" Create an alert message for users attempting to subscribe from blocked domains.", "notifima"),
             proSetting: true,
         },
         {
@@ -38,8 +38,8 @@ export default {
             key: "ban_email_addresses",
             type: "textarea",
             class: "woo-setting-wpeditor-class",
-            desc: __("Specify email addresses that are restricted from subscribing. You can add multiple commma seperated emails.", "woocommerce-stock-manager"),
-            label: __("Blocked email addresses", "woocommerce-stock-manager"),
+            desc: __("Specify email addresses that are restricted from subscribing. You can add multiple commma seperated emails.", "notifima"),
+            label: __("Blocked email addresses", "notifima"),
             proSetting: true,
         },
         {
@@ -50,8 +50,8 @@ export default {
         {
             key: "ban_email_address_text",
             type: "textarea",
-            label: __("Blocked email alert message", "woocommerce-stock-manager"),
-            desc: __("Create an alert message for users attempting to subscribe from blocked Email ID.", "woocommerce-stock-manager"),
+            label: __("Blocked email alert message", "notifima"),
+            desc: __("Create an alert message for users attempting to subscribe from blocked Email ID.", "notifima"),
             proSetting: true,
         },
         {

@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager\Deprecated;
+namespace Notifima\Deprecated;
 defined( 'ABSPATH' ) || exit;
 /**
 * @deprecated 4.0.0

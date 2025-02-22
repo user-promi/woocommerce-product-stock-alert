@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -26,7 +26,7 @@ class Shortcode {
 
         do_action( 'woocommerce_stock_manager_form_before' );
 
-        SM()->frontend->display_product_subscription_form($product_id);
+        Notifima()->frontend->display_product_subscription_form($product_id);
 
         do_action( 'woocommerce_stock_manager_form_after' );
 

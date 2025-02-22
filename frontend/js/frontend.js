@@ -8,7 +8,7 @@ jQuery(function ($) {
      * @return {undefined}
      */
     function init() {
-        $(document).on('click', '.stock-manager-button', subscribe);
+        $(document).on('click', '.notifima-button', subscribe);
         $(document).on('click', '.unsubscribe-button', unsubscribe);
         $(document).on('change', 'input.variation_id', getVariationSubscribeForm);
     }
@@ -131,11 +131,11 @@ jQuery(function ($) {
                 } else {
                     form.html(`<div class="registered-message">${successMessage}</div>`);
                 }
-                form.find('.stock-manager-button').replaceWith(buttonHtml);
+                form.find('.notifima-button').replaceWith(buttonHtml);
             });
         } else {
             form.find('.responsedata-error-message').remove() && form.append($(`<p style="color:#e2401c;" class="responsedata-error-message">${validEmail}</p>`));
-            form.find('.stock-manager-button').replaceWith(buttonHtml);
+            form.find('.notifima-button').replaceWith(buttonHtml);
         }
     }
 

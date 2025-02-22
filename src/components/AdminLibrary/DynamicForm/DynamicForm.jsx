@@ -112,10 +112,10 @@ const DynamicForm = (props) => {
     return false;
   }
 
-  const moduleDependChanged = (moduleDepend) => {
-    if (moduleDepend && !modules.includes( moduleDepend )) {
+  const moduleEnabledChanged = (moduleEnabled) => {
+    if (moduleEnabled && !modules.includes( moduleEnabled )) {
       setModelModuleOpen(true);
-      setModuleName(moduleDepend);
+      setModuleName(moduleEnabled);
       return true;
     }
     return false;
@@ -301,7 +301,7 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if (!proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend)) {
+                if (!proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled)) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -326,7 +326,7 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -344,7 +344,7 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -370,7 +370,7 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -395,7 +395,7 @@ const DynamicForm = (props) => {
               value={value || "#000000"}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -413,7 +413,7 @@ const DynamicForm = (props) => {
               value={setting[inputField.key] || ""}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key, "single", inputField.type);
                 }
               }}
@@ -509,7 +509,7 @@ const DynamicForm = (props) => {
               options={inputField.options} //  pass the array of options
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -539,7 +539,7 @@ const DynamicForm = (props) => {
               options={inputField.options} // in array includes image
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -565,7 +565,7 @@ const DynamicForm = (props) => {
               options={inputField.options} // in array includes color 
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key);
                 }
               }}
@@ -586,7 +586,7 @@ const DynamicForm = (props) => {
                 value={value}
                 proSetting={isProSetting(inputField.proSetting)}
                 onChange={(data) => {
-                  if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                  if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                     settingChanged.current = true;
                     updateSetting(inputField.key, data.value)
                   }
@@ -611,7 +611,7 @@ const DynamicForm = (props) => {
                 value={value}
                 proSetting={isProSetting(inputField.proSetting)}
                 onChange={(e, data) => {
-                  if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                  if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                     handleChange(e, inputField.key, "single", "multi-select", data);
                   }
                 }}
@@ -633,7 +633,7 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e, data) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key, "single", "country", data);
                 }
               }}
@@ -652,7 +652,7 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e, data) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key, "single", "select", data);
                 }
               }}
@@ -671,6 +671,7 @@ const DynamicForm = (props) => {
               inputWrapperClass="toggle-checkbox-header"
               inputInnerWrapperClass={inputField.look == 'toggle' ? "toggle-checkbox" : "default-checkbox"}// this props for change classes default/ Toggle
               inputClass={inputField.class}
+              tour={inputField.tour}
               hintOuterClass="checkbox-description"
               hintInnerClass="hover-tooltip"
               idPrefix="toggle-switch"
@@ -682,7 +683,7 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key, "multiple");
                 }
               }}
@@ -716,10 +717,10 @@ const DynamicForm = (props) => {
               value={value}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e) => {
-                if (!inputField.dependentPlugin) {
+                if (!inputField.dependentPlugin && !moduleEnabledChanged(inputField.moduleEnabled)) {
                   setModelPluginOpen(true)
                 }
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   if (inputField.dependentPlugin) {
                     handleChange(e, inputField.key, "multiple");
                   }
@@ -744,7 +745,7 @@ const DynamicForm = (props) => {
               value={value || inputField.defaultValue}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(data) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   settingChanged.current = true;
                   updateSetting(inputField.key, data)
                 }
@@ -759,7 +760,7 @@ const DynamicForm = (props) => {
               apiKey={appLocalizer.mvx_tinymce_key}
               value={value}
               onEditorChange={(e) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   handleChange(e, inputField.key, "simple", "wpeditor");
                 }
               }}
@@ -807,7 +808,7 @@ const DynamicForm = (props) => {
               proSetting={isProSetting(inputField.proSetting)}
               setting={setting[inputField.key]}
               onChange={(key, value, isRestoreDefaults=false) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   settingChanged.current = true;
                   if (isRestoreDefaults) {
                       updateSetting(inputField.key, value);
@@ -824,7 +825,7 @@ const DynamicForm = (props) => {
           input = (
             <FormCustomizer
               value={value}
-              buttonText={setting.customize_btn.button_text || 'Submit'}
+              buttonText={setting.customize_btn && setting.customize_btn.button_text || 'Submit'}
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(e, key) => {
                 if ( ! proSettingChanged( inputField.proSetting ) ) {
@@ -844,6 +845,7 @@ const DynamicForm = (props) => {
               setting={setting}
               proSetting={isProSetting(inputField.proSetting)}
               proSettingChange={()=> proSettingChanged(inputField.proSetting)}
+              moduleEnabledChange={()=> moduleEnabledChanged(inputField.moduleEnabled)}
               onChange={(key, value) => {
                   settingChanged.current = true;
                   updateSetting(key, value);
@@ -877,14 +879,14 @@ const DynamicForm = (props) => {
               proSetting={isProSetting(inputField.proSetting)}
               modules={modules}
               onChange={(key, value) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   settingChanged.current = true;
                   updateSetting(key, value);
                 }
               }}
-              moduleChange={(moduleDepend) => {
+              moduleChange={(moduleEnabled) => {
                 setModelModuleOpen(true);
-                setModuleName(moduleDepend);
+                setModuleName(moduleEnabled);
               }}
             />
           );
@@ -915,7 +917,7 @@ const DynamicForm = (props) => {
               fields={inputField.fields} // field array include name, type, options, placeholder
               proSetting={isProSetting(inputField.proSetting)}
               onChange={(data) => {
-                if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+                if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                   settingChanged.current = true;
                   updateSetting(inputField.key, data)
                 }
@@ -1005,7 +1007,7 @@ const DynamicForm = (props) => {
             value={value}
             syncDirections={inputField.syncDirections} // array includes label, value, img1, img2
             onChange={(data) => {
-              if ( !proSettingChanged(inputField.proSetting) && !moduleDependChanged(inputField.moduleDepend) ) {
+              if ( !proSettingChanged(inputField.proSetting) && !moduleEnabledChanged(inputField.moduleEnabled) ) {
                 settingChanged.current = true;
                 updateSetting(inputField.key, data)
               }

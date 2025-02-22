@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager\Deprecated;
+namespace Notifima\Deprecated;
 
 /**
  * Deprecated action hooks

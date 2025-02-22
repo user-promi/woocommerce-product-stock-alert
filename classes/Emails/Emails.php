@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager\Emails;
+namespace Notifima\Emails;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
@@ -30,11 +30,11 @@ class Emails extends \WC_Email {
 	function __construct() {
 
 		$this->id 			= 'stock_manager';
-		$this->title 			= __( 'Alert Subscriber', 'woocommerce-stock-manager' );
-		$this->description	= __( 'Alert customer when their subscribed product becomes in stock', 'woocommerce-stock-manager' );
+		$this->title 			= __( 'Alert Subscriber', 'notifima' );
+		$this->description	= __( 'Alert customer when their subscribed product becomes in stock', 'notifima' );
 		$this->template_html 	= 'emails/Email.php';
 		$this->template_plain = 'emails/plain/Email.php';
-		$this->template_base  = SM()->plugin_path . 'templates/';
+		$this->template_base  = Notifima()->plugin_path . 'templates/';
 		
 		// Call parent constuctor
 		parent::__construct();
@@ -69,7 +69,7 @@ class Emails extends \WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return apply_filters( 'woocommerce_email_subject_stock_manager', __( 'Your Subscribed product on {site_title} is available now', 'woocommerce-stock-manager' ), $this->object );
+		return apply_filters( 'woocommerce_email_subject_stock_manager', __( 'Your Subscribed product on {site_title} is available now', 'notifima' ), $this->object );
 	} 
 
 	/**
@@ -79,7 +79,7 @@ class Emails extends \WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return apply_filters( 'woocommerce_email_heading_stock_manager', __( 'Welcome to {site_title} ', 'woocommerce-stock-manager' ), $this->object );
+		return apply_filters( 'woocommerce_email_heading_stock_manager', __( 'Welcome to {site_title} ', 'notifima' ), $this->object );
 	} 
 
 	/**

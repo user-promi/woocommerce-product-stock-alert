@@ -27,13 +27,13 @@ const CatalogCustomizer = (props) => {
   // Create menu
   const [menu, setMenu] = useState([
     {
-      name: "Enquiry", id: 'enquiry', icon: 'adminLib-inquiry-filled-svgrepo-com',
+      name: "Enquiry", id: 'enquiry', icon: 'adminLib-inquiry',
     },
     {
       name: "Quote", id: 'quote', icon: 'adminLib-price-quote-icon',
     },
     {
-      name: "Catalog", id: 'catalog', icon: 'adminLib-catalog-svgrepo-com',
+      name: "Catalog", id: 'catalog', icon: 'adminLib-catalog',
     },
   ]);
 
@@ -344,11 +344,11 @@ const CatalogCustomizer = (props) => {
                                   {item.id === 'enquery_button' && (
                                     <div
                                       onClick={() => { handleSubMenuChange(menu[0]); }}
-                                      className={`button-main-container toggle-visibility ${currentTab.id === "enquiry" ? '' : 'disable'}`}
+                                      className={`button-main-container toggle-visibility ${currentTab.id === "enquiry" ? '' : 'disable'} enquiry-btn`}
                                     >
                                       <ButtonCustomizer
                                         className='ignore-drag'
-                                        text='enquiry'
+                                        text={setting['enquery_button'] && setting['enquery_button']['button_text'] || 'enquiry'}
                                         setting={setting['enquery_button']}
                                         onChange={(key, value, isRestoreDefaults=false) => {
                                           const previousSetting = setting['enquery_button'] || {};
@@ -382,7 +382,7 @@ const CatalogCustomizer = (props) => {
                                       className={`button-main-container toggle-visibility ${currentTab.id === "quote" ? '' : 'disable'}`}
                                     >
                                       <ButtonCustomizer
-                                        text='Add to quote'
+                                        text={setting['quote_button'] && setting['quote_button']['button_text'] || 'Add to quote'}
                                         setting={setting['quote_button']}
                                         onChange={(key, value, isRestoreDefaults=false) => {
                                           const previousSetting = setting['quote_button'] || {};
@@ -425,7 +425,7 @@ const CatalogCustomizer = (props) => {
             {!proSetting &&
               <article className='pro-banner'>
                 <p>Upgrade to pro for endless customization</p>
-                <a href="#" className="main-btn btn-purple" target='_blank'>Upgrade now</a>
+                <a href="https://catalogx.com/pricing/" className="main-btn btn-purple" target='_blank'>Upgrade now</a>
               </article>
             }
           </div>
@@ -433,7 +433,7 @@ const CatalogCustomizer = (props) => {
         <section className='single-product-page-description'>
           <div className='option'>
             <ul>
-              <li className='active'>Description <span><i className='admin-font adminLib-keyboard_arrow_down'></i></span></li>
+              <li className='active'>Description <span><i className='admin-font adminLib-keyboard-arrow-down'></i></span></li>
               <li>Additional Information</li>
               <li>Review</li>
             </ul>

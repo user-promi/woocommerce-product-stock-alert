@@ -1,11 +1,11 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * StockManager Subscribe class
+ * Notifima Subscribe class
  */
 class Subscriber {
     public function __construct() {
@@ -25,16 +25,16 @@ class Subscriber {
      */
     function registers_post_status() {
         register_post_status( 'woo_mailsent', [ 
-            'label' => _x( 'Mail Sent', 'woostockalert', 'woocommerce-stock-manager' ), 
+            'label' => _x( 'Mail Sent', 'woostockalert', 'notifima' ), 
             'public' => true, 
             'exclude_from_search' => true, 
             'show_in_admin_all_list' => true, 
             'show_in_admin_status_list' => true, /* translators: %s: count */
-            'label_count' => _n_noop( 'Mail Sent <span class="count">( %s )</span>', 'Mail Sent <span class="count">( %s )</span>', 'woocommerce-stock-manager' ), 
+            'label_count' => _n_noop( 'Mail Sent <span class="count">( %s )</span>', 'Mail Sent <span class="count">( %s )</span>', 'notifima' ), 
         ] );
 
         register_post_status( 'woo_subscribed', [ 
-            'label' => _x( 'Subscribed', 'woostockalert', 'woocommerce-stock-manager' ), 
+            'label' => _x( 'Subscribed', 'woostockalert', 'notifima' ), 
             'public' => true, 
             'exclude_from_search' => true, 
             'show_in_admin_all_list' => true, 
@@ -43,7 +43,7 @@ class Subscriber {
         ] );
 
         register_post_status( 'woo_unsubscribed', [ 
-            'label' => _x( 'Unsubscribed', 'woostockalert', 'woocommerce-stock-manager' ), 
+            'label' => _x( 'Unsubscribed', 'woostockalert', 'notifima' ), 
             'public' => true, 
             'exclude_from_search' => true, 
             'show_in_admin_all_list' => true, 
@@ -297,7 +297,7 @@ class Subscriber {
         $cust_mail  = WC()->mailer()->emails[ 'WC_Subscriber_Confirmation_Email_Stock_Manager' ];
 
         // Get additional email from global setting.
-        $additional_email = SM()->setting->get_setting( 'additional_alert_email' );
+        $additional_email = Notifima()->setting->get_setting( 'additional_alert_email' );
 
         // Add vendor's email.
         if ( function_exists( 'get_mvx_product_vendors' ) ) {
@@ -398,7 +398,7 @@ class Subscriber {
             $stock_status   = $product->get_stock_status();
         } 
 
-        $is_enable_backorders = SM()->setting->get_setting( 'is_enable_backorders' );
+        $is_enable_backorders = Notifima()->setting->get_setting( 'is_enable_backorders' );
         $is_enable_backorders = is_array( $is_enable_backorders ) ? reset( $is_enable_backorders ) : false;
         
         if ( $manage_stock ) {

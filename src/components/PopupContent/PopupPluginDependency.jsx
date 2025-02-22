@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import './popupContent.scss';
+import { __ } from "@wordpress/i18n";
 
 const PopupPluginDependency = () => {
     return (
@@ -12,12 +13,13 @@ const PopupPluginDependency = () => {
                     <div className="admin-module-dialog-content">
                         <div className="admin-image-overlay">
                             <div className="admin-overlay-content">
-                                <h1 className="banner-header">Stock <span className="banner-pro-tag">Pro</span> </h1>
                                 <div className="admin-banner-content">
-                                    <h2>Activate 30+ Pro Modules</h2>
-                                    <p id='description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi fugit quibusdam adipisci accusantium at aperiam minus eum laudantium tempora consequuntur.</p>
+                                    <h2>{ __('Add Enquiry Button for Out of Stock Products', "notifima") }</h2>
+                                    <p id="description">
+                                        { __('Install the "Back In Stock Notifier for WooCommerce" plugin to enable the Enquiry button for out-of-stock products.', "notifima") }
+                                    </p>
                                 </div>
-                                <a className="admin-go-pro-btn" target="_blank" href={appLocalizer.pro_url}>Upgrade to Pro</a>
+                                <a className="admin-go-pro-btn" target="_blank" href="https://wordpress.org/plugins/woocommerce-product-stock-alert/">{__('Download now', "notifima")}</a>
                             </div>
                         </div>
                     </div>

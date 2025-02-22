@@ -15,9 +15,9 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 
 
 export default function SubscribersList() {
-  const fetchSubscribersDataUrl = `${appLocalizer.apiUrl}/stockmanager/v1/get-subscriber-list`;
-  const fetchSubscribersCount = `${appLocalizer.apiUrl}/stockmanager/v1/get-table-segment`;
-  const bulkActionUrl = `${appLocalizer.apiUrl}/stockmanager/v1/bulk-action`;
+  const fetchSubscribersDataUrl = `${appLocalizer.apiUrl}/notifima/v1/get-subscriber-list`;
+  const fetchSubscribersCount = `${appLocalizer.apiUrl}/notifima/v1/get-table-segment`;
+  const bulkActionUrl = `${appLocalizer.apiUrl}/notifima/v1/bulk-action`;
   const [postStatus, setPostStatus] = useState("");
   const [data, setData] = useState(null);
   const [allData, setAllData] = useState([]);
@@ -157,22 +157,22 @@ export default function SubscribersList() {
         setSubscribersStatus([
           {
             key: "all",
-            name: __("All", "woocommerce-stock-manager"),
+            name: __("All", "notifima"),
             count: response["all"],
           },
           {
             key: "subscribed",
-            name: __("Subscribed", "woocommerce-stock-manager"),
+            name: __("Subscribed", "notifima"),
             count: response["subscribed"],
           },
           {
             key: "unsubscribed",
-            name: __("Unsubscribed", "woocommerce-stock-manager"),
+            name: __("Unsubscribed", "notifima"),
             count: response["unsubscribed"],
           },
           {
             key: "mailsent",
-            name: __("Mail Sent", "woocommerce-stock-manager"),
+            name: __("Mail Sent", "notifima"),
             count: response["mailsent"],
           },
         ]);
@@ -234,7 +234,7 @@ export default function SubscribersList() {
       render: (updateFilter, value) => (
         <div ref={dateRef}>
           <div className="admin-header-search-section">
-            <input value={`${selectedRange[0].startDate.toLocaleDateString()} - ${selectedRange[0].endDate.toLocaleDateString()}`} onClick={() => handleDateOpen()} className="date-picker-input-custom" type="text" placeholder={__("DD/MM/YYYY", "woocommerce-stock-manager")} />
+            <input value={`${selectedRange[0].startDate.toLocaleDateString()} - ${selectedRange[0].endDate.toLocaleDateString()}`} onClick={() => handleDateOpen()} className="date-picker-input-custom" type="text" placeholder={__("DD/MM/YYYY", "notifima")} />
           </div>
           {openDatePicker &&
             <div className="date-picker-section-wrapper" id="date-picker-wrapper">
@@ -327,7 +327,7 @@ export default function SubscribersList() {
   //columns for the data table
   const columns = [
     {
-      name: __("Product", "woocommerce-stock-manager"),
+      name: __("Product", "notifima"),
       cell: (row) =>
         <TableCell title="Product" >
           <img src={row.image} alt="product_image" />
@@ -335,7 +335,7 @@ export default function SubscribersList() {
         </TableCell>,
     },
     {
-      name: __("Email", "woocommerce-stock-manager"),
+      name: __("Email", "notifima"),
       cell: (row) =>
         <TableCell title="Email">
           {row.email}
@@ -346,11 +346,11 @@ export default function SubscribersList() {
         </TableCell>,
     },
     {
-      name: __("Date", "woocommerce-stock-manager"),
+      name: __("Date", "notifima"),
       cell: (row) => <TableCell title="Date" > {row.date} </TableCell>,
     },
     {
-      name: __("Status", "woocommerce-stock-manager"),
+      name: __("Status", "notifima"),
       cell: (row) => <TableCell title="Status" >
         <p
           className={row.status_key === 'mailsent' ? 'sent' : (row.status_key === 'subscribed' ? 'subscribed' : 'unsubscribed')}
@@ -364,9 +364,9 @@ export default function SubscribersList() {
       {!appLocalizer.khali_dabba ? (
         <div>
           <div className="free-reports-download-section">
-            <h2 className="section-heading">{__("Download product wise subscriber data.", "woocommerce-stock-manager")}</h2>
+            <h2 className="section-heading">{__("Download product wise subscriber data.", "notifima")}</h2>
             <button>
-              <a href={appLocalizer.export_button}>{__("Download CSV", "woocommerce-stock-manager")}</a>
+              <a href={appLocalizer.export_button}>{__("Download CSV", "notifima")}</a>
             </button>
             <p className="description" dangerouslySetInnerHTML={{ __html: "This CSV file contains all subscriber data from your site. Upgrade to <a href='https://multivendorx.com/woocommerce-product-stock-manager-notifier-pro/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager' target='_blank'>WooCommerce Product Stock Manager & Notifier Pro</a> to generate CSV files based on specific products or users." }}></p>
           </div>
@@ -396,11 +396,11 @@ export default function SubscribersList() {
       ) : (
         <div className="admin-subscriber-list">
           <div className="admin-page-title">
-            <p>{__("Subscriber List", "woocommerce-stock-manager")}</p>
+            <p>{__("Subscriber List", "notifima")}</p>
             <div className="download-btn-subscriber-list">
               <button onClick={handleClick} className="admin-btn btn-purple">
                 <div className="wp-menu-image dashicons-before dashicons-download"></div>
-                {__("Download CSV", "woocommerce-stock-manager")}
+                {__("Download CSV", "notifima")}
               </button>
               <CSVLink
                 data={allData.map(({ date, product, email, status }) => ({ date, product, email, status }))}

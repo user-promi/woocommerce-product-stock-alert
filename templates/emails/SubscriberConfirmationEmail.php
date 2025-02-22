@@ -10,16 +10,16 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<p><?php printf( esc_html__( "Hi there. You have successfully subscribed to a product. We will inform you when the product becomes available. Product details are shown below for your reference:", 'woocommerce-stock-manager' ) );
+<p><?php printf( esc_html__( "Hi there. You have successfully subscribed to a product. We will inform you when the product becomes available. Product details are shown below for your reference:", 'notifima' ) );
 
 $is_prices_including_tax = get_option( 'woocommerce_prices_include_tax' );
 ?>
-<h3><?php esc_html_e( 'Product Details', 'woocommerce-stock-manager' ); ?></h3>
+<h3><?php esc_html_e( 'Product Details', 'notifima' ); ?></h3>
 <table cellspacing="0" cellpadding="6" style="width: 100%; border: 1px solid #eee;" border="1" bordercolor="#eee">
 	<thead>
 		<tr>
-			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php esc_html_e( 'Product', 'woocommerce-stock-manager' ); ?></th>
-			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php esc_html_e( 'Price', 'woocommerce-stock-manager' ); ?></th>
+			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php esc_html_e( 'Product', 'notifima' ); ?></th>
+			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php esc_html_e( 'Price', 'notifima' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -37,11 +37,11 @@ $is_prices_including_tax = get_option( 'woocommerce_prices_include_tax' );
 	</tbody>
 </table>
 
-<p style="margin-top: 15px !important;"><?php printf( esc_html__( "Following is the product link : ", 'woocommerce-stock-manager' ) ); ?><a href="<?php echo esc_url( $product->get_permalink() ); ?>"><?php echo esc_html( wp_strip_all_tags( $product->get_name() ) ); ?></a></p>
+<p style="margin-top: 15px !important;"><?php printf( esc_html__( "Following is the product link : ", 'notifima' ) ); ?><a href="<?php echo esc_url( $product->get_permalink() ); ?>"><?php echo esc_html( wp_strip_all_tags( $product->get_name() ) ); ?></a></p>
 
-<h3><?php esc_html_e( 'Customer Details', 'woocommerce-stock-manager' ); ?></h3>
+<h3><?php esc_html_e( 'Customer Details', 'notifima' ); ?></h3>
 <p>
-	<strong><?php esc_html_e( 'Email', 'woocommerce-stock-manager' ); ?> : </strong>
+	<strong><?php esc_html_e( 'Email', 'notifima' ); ?> : </strong>
 	<a target="_blank" href="mailto:<?php echo esc_html( $customer_email ); ?>"><?php echo esc_html( $customer_email ); ?></a>
 </p>
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 defined( 'ABSPATH' ) || exit;
 
 class Ajax {
@@ -27,7 +27,7 @@ class Ajax {
 	 * @return never
 	 */
 	function recaptcha_validate_ajax() {
-		if ( ! check_ajax_referer( 'stock-manager-security-nonce', 'nonce', false ) ) {
+		if ( ! check_ajax_referer( 'notifima-security-nonce', 'nonce', false ) ) {
 			wp_send_json_error( 'Invalid security token sent.' );
 			wp_die();
 		} 
@@ -122,7 +122,7 @@ class Ajax {
 	 * @return never
 	 */
 	function unsubscribe_users() {
-		if ( ! check_ajax_referer( 'stock-manager-security-nonce', 'nonce', false ) ) {
+		if ( ! check_ajax_referer( 'notifima-security-nonce', 'nonce', false ) ) {
 			wp_send_json_error( 'Invalid security token sent.' );
 			wp_die();
 		}
@@ -150,7 +150,7 @@ class Ajax {
 	 * @return never
 	 */
 	function subscribe_users() {
-		if ( ! check_ajax_referer( 'stock-manager-security-nonce', 'nonce', false ) ) {
+		if ( ! check_ajax_referer( 'notifima-security-nonce', 'nonce', false ) ) {
 			wp_send_json_error( 'Invalid security token sent.' );
 			wp_die();
 		}
@@ -195,7 +195,7 @@ class Ajax {
 	 * @return never
 	 */
 	function get_variation_box_ajax() {
-		if ( ! check_ajax_referer( 'stock-manager-security-nonce', 'nonce', false ) ) {
+		if ( ! check_ajax_referer( 'notifima-security-nonce', 'nonce', false ) ) {
 			wp_send_json_error( 'Invalid security token sent.' );
 			wp_die();
 		} 
@@ -206,7 +206,7 @@ class Ajax {
 		if ( $variation_id && !empty( $variation_id ) ) {
 			$child_obj = new \WC_Product_Variation( $variation_id );
 		} 
-		echo SM()->frontend->get_subscribe_form( $product, $child_obj );
+		echo Notifima()->frontend->get_subscribe_form( $product, $child_obj );
 		die();
 	} 
 } 

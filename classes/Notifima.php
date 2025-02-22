@@ -1,10 +1,10 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 defined( 'ABSPATH' ) || exit;
 use \Automattic\WooCommerce\Utilities\FeaturesUtil;
 
-class StockManager {
+class Notifima {
 
     private static $instance = null;
     private $container       = [];
@@ -22,9 +22,8 @@ class StockManager {
         $this->container[ 'plugin_path' ]    = trailingslashit( dirname( $file ) );
         $this->container[ 'plugin_base' ]    = plugin_basename( $file );
 
-        $this->container[ 'version' ]        = STOCK_MANAGER_PLUGIN_VERSION;
-        $this->container[ 'rest_namespace' ] = STOCK_MANAGER_REST_NAMESPACE;
-        $this->container[ 'text_domain' ]    = STOCK_MANAGER_TEXT_DOMAIN;
+        $this->container[ 'version' ]        = NOTIFIMA_PLUGIN_VERSION;
+        $this->container[ 'rest_namespace' ] = NOTIFIMA_REST_NAMESPACE;
         
         add_action( 'init', [ $this, 'set_default_value' ] );
         // Activation Hooks
@@ -44,14 +43,14 @@ class StockManager {
 
     public function set_default_value() {
         $default_value = [
-            'double_opt_in_success' => __( 'Kindly check your inbox to confirm the subscription.', 'woocommerce-stock-manager' ), 
-            'shown_interest_text' => __( 'Kindly check your inbox to confirm the subscription.', 'woocommerce-stock-manager' ),
-            'email_placeholder_text' => __( 'Enter your email', 'woocommerce-stock-manager' ),
-            'alert_text' => __( 'Receive in-stock notifications for this.', 'woocommerce-stock-manager' ),
-            'unsubscribe_button_text' => __( 'Unsubscribe', 'woocommerce-stock-manager' ),
+            'double_opt_in_success' => __( 'Kindly check your inbox to confirm the subscription.', 'notifima' ), 
+            'shown_interest_text' => __( 'Kindly check your inbox to confirm the subscription.', 'notifima' ),
+            'email_placeholder_text' => __( 'Enter your email', 'notifima' ),
+            'alert_text' => __( 'Receive in-stock notifications for this.', 'notifima' ),
+            'unsubscribe_button_text' => __( 'Unsubscribe', 'notifima' ),
             'alert_text_color' => '',
             'customize_btn' => [
-                'button_text' => __( 'Notify me', 'woocommerce-stock-manager' ), 
+                'button_text' => __( 'Notify me', 'notifima' ), 
                 'button_background_color' => '', 
                 'button_border_color' => '', 
                 'button_text_color' => '', 
@@ -62,14 +61,14 @@ class StockManager {
                 'button_border_radious' => '', 
                 'button_border_size' => ''
             ],
-            'alert_success'  => __( 'Thank you for expressing interest in %product_title%. We will notify you via email once it is back in stock.', 'woocommerce-stock-manager' ), 
+            'alert_success'  => __( 'Thank you for expressing interest in %product_title%. We will notify you via email once it is back in stock.', 'notifima' ), 
             // Translators: This message display already registered user to display already registered message
-            'alert_email_exist' => __( '%customer_email% is already registered for %product_title%. Please attempt a different email address.', 'woocommerce-stock-manager' ), 
-            'valid_email' => __( 'Please enter a valid email ID and try again.', 'woocommerce-stock-manager' ), 
+            'alert_email_exist' => __( '%customer_email% is already registered for %product_title%. Please attempt a different email address.', 'notifima' ), 
+            'valid_email' => __( 'Please enter a valid email ID and try again.', 'notifima' ), 
             // Translators: This message display user sucessfully unregistered
-            'alert_unsubscribe_message' => __( '%customer_email% is successfully unsubscribed.', 'woocommerce-stock-manager' ),
-            'ban_email_domain_text' => __( 'This email domain is ban in our site, kindly use another email domain.', 'woocommerce-stock-manager' ), 
-            'ban_email_address_text' => __( 'This email address is ban in our site, kindly use another email address.', 'woocommerce-stock-manager' )
+            'alert_unsubscribe_message' => __( '%customer_email% is successfully unsubscribed.', 'notifima' ),
+            'ban_email_domain_text' => __( 'This email domain is ban in our site, kindly use another email domain.', 'notifima' ), 
+            'ban_email_address_text' => __( 'This email address is ban in our site, kindly use another email address.', 'notifima' )
         ];
         $this->container[ 'default_value' ]    = $default_value;
     }
@@ -81,10 +80,10 @@ class StockManager {
      * @return array
      */
     public function plugin_row_meta( $links, $file ) {
-        if ( SM()->plugin_base === $file ) {
+        if ( Notifima()->plugin_base === $file ) {
             $row_meta = [
-            	'docs'    => '<a href="' . esc_url( STOCK_MANAGER_DOC_URL ) . '" aria-label="' . esc_attr__( 'View WooCommerce documentation', 'woocommerce-stock-manager' ) . '" target="_blank">' . esc_html__( 'Docs', 'woocommerce-stock-manager' ) . '</a>',
-            	'support' => '<a href="' . esc_url( STOCK_MANAGER_SUPPORT_URL ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'woocommerce-stock-manager' ) . '" target="_blank">' . esc_html__( 'Support', 'woocommerce-stock-manager' ) . '</a>',
+            	'docs'    => '<a href="' . esc_url( NOTIFIMA_DOC_URL ) . '" aria-label="' . esc_attr__( 'View WooCommerce documentation', 'notifima' ) . '" target="_blank">' . esc_html__( 'Docs', 'notifima' ) . '</a>',
+            	'support' => '<a href="' . esc_url( NOTIFIMA_SUPPORT_URL ) . '" aria-label="' . esc_attr__( 'Visit community forums', 'notifima' ) . '" target="_blank">' . esc_html__( 'Support', 'notifima' ) . '</a>',
             ];
 
             return array_merge( $links, $row_meta );
@@ -185,9 +184,9 @@ class StockManager {
      */
     public function load_plugin_textdomain() {
         if ( version_compare( $GLOBALS['wp_version'], '6.7', '<' ) ) {
-            load_plugin_textdomain( 'woocommerce-stock-manager', false, plugin_basename( dirname( dirname( __FILE__ ) ) ) . '/languages' );
+            load_plugin_textdomain( 'notifima', false, plugin_basename( dirname( dirname( __FILE__ ) ) ) . '/languages' );
         } else {
-            load_textdomain( 'woocommerce-stock-manager', WP_LANG_DIR . '/plugins/woocommerce-product-stock-alert-' . determine_locale() . '.mo' );
+            load_textdomain( 'notifima', WP_LANG_DIR . '/plugins/notifima-' . determine_locale() . '.mo' );
         }
     } 
 
@@ -211,7 +210,7 @@ class StockManager {
     public static function woocommerce_admin_notice() {
         ?>
         <div id="message" class="error">
-            <p><?php printf(__('%sProduct Stock Manager & Notifier for WooCommerce is inactive.%s The %sWooCommerce plugin%s must be active for the Product Stock Manager & Notifier for WooCommerce to work. Please %sinstall & activate WooCommerce%s', 'woocommerce-stock-manager'), '<strong>', '</strong>', '<a target="_blank" href="http://wordpress.org/extend/plugins/woocommerce/">', '</a>', '<a href="' . admin_url('plugins.php') . '">', ' &raquo;</a>'); ?></p>
+            <p><?php printf(__('%sProduct Stock Manager & Notifier for WooCommerce is inactive.%s The %sWooCommerce plugin%s must be active for the Product Stock Manager & Notifier for WooCommerce to work. Please %sinstall & activate WooCommerce%s', 'notifima'), '<strong>', '</strong>', '<a target="_blank" href="http://wordpress.org/extend/plugins/woocommerce/">', '</a>', '<a href="' . admin_url('plugins.php') . '">', ' &raquo;</a>'); ?></p>
         </div>
         <?php
     }
@@ -227,13 +226,13 @@ class StockManager {
         if ( Install::is_migration_running() ) {
             ?>
             <div id="message" class="notice notice-warning">
-                <p><?php _e( "Product Stock Manager is currently updating the database in the background. Please be patient while the process completes.", 'woocommerce-stock-manager' ) ?></p>
+                <p><?php _e( "Product Stock Manager is currently updating the database in the background. Please be patient while the process completes.", 'notifima' ) ?></p>
             </div>
             <?php
-        } else if ( $plugin_version != STOCK_MANAGER_PLUGIN_VERSION ) {
+        } else if ( $plugin_version != NOTIFIMA_PLUGIN_VERSION ) {
             ?>
             <div id="message" class="error">
-                <p><?php _e( "The Product Stock Manager & Notifier for WooCommerce is experiencing configuration issues. To ensure proper functioning, kindly deactivate and then activate the plugin.", 'woocommerce-stock-manager' ) ?></p>
+                <p><?php _e( "The Product Stock Manager & Notifier for WooCommerce is experiencing configuration issues. To ensure proper functioning, kindly deactivate and then activate the plugin.", 'notifima' ) ?></p>
             </div>
             <?php
         }
@@ -246,12 +245,12 @@ class StockManager {
      */
     public static function stock_manager_settings( $links ) {
         $plugin_links = [ 
-            '<a href="' . admin_url( 'admin.php?page=stock-manager#&tab=settings&subtab=general' ) . '">' . __( 'Settings', 'woocommerce-stock-manager' ) . '</a>', 
-            '<a href="https://multivendorx.com/support-forum/forum/product-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Support', 'woocommerce-stock-manager' ) . '</a>', 
-            '<a href="https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Docs', 'woocommerce-stock-manager' ) . '</a>'
+            '<a href="' . admin_url( 'admin.php?page=notifima#&tab=settings&subtab=general' ) . '">' . __( 'Settings', 'notifima' ) . '</a>', 
+            '<a href="https://multivendorx.com/support-forum/forum/product-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Support', 'notifima' ) . '</a>', 
+            '<a href="https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Docs', 'notifima' ) . '</a>'
         ];
         if ( apply_filters( 'is_stock_manager_pro_inactive', true ) ) {
-            $links[ 'go_pro' ] = '<a href="' . STOCK_MANAGER_PRO_SHOP_URL . '" class="stock-manager-pro-plugin" target="_blank">' . __( 'Get Pro', 'woocommerce-stock-manager' ) . '</a>';
+            $links[ 'go_pro' ] = '<a href="' . NOTIFIMA_PRO_SHOP_URL . '" class="notifima-pro-plugin" target="_blank">' . __( 'Get Pro', 'notifima' ) . '</a>';
         }
         return array_merge( $plugin_links, $links );
     }

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Dialog from "@mui/material/Dialog";
 import Popoup from '../PopupContent/PopupContent';
+import { __ } from "@wordpress/i18n";
 import './banner.scss';
 
 export default function banner() {
@@ -21,62 +22,62 @@ export default function banner() {
 	const handleOpen = () => {
         setModal(true);
 	}
-    if(banner){
-        document.addEventListener('DOMContentLoaded', function () {
-            const carouselItems = document.querySelectorAll('.carousel-item');
-            const totalItems = carouselItems.length;
-            let currentIndex = 0;
-            let interval;
-        
-            // Function to show the current slide and hide others
-            function showSlide(index) {
-                carouselItems.forEach(item => item.classList.remove('active'));
-                carouselItems[index].classList.add('active');
-            }
-        
-            // Function to go to the next slide
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalItems;
-                showSlide(currentIndex);
-            }
-        
-            // Function to go to the previous slide
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-                showSlide(currentIndex);
-            }
-        
-            // Start the auto-slide interval
-            function startAutoSlide() {
-                interval = setInterval(nextSlide, 7000); // Change slide every 7 seconds
-            }
-        
-            // Stop the auto-slide interval
-            function stopAutoSlide() {
-                clearInterval(interval);
-            }
-        
-            // Initialize the carousel
-            showSlide(currentIndex);
-            startAutoSlide();
-        
-            // Handle next button click
-            document.getElementById('nextBtn').addEventListener('click', function () {
-                nextSlide();
-                stopAutoSlide();
-                startAutoSlide();
-            });
-        
-            // Handle previous button click
-            document.getElementById('prevBtn').addEventListener('click', function () {
-                prevSlide();
-                stopAutoSlide();
-                startAutoSlide();
-            });
-        });
-    }
     
+    useEffect(() => {
+        if (!banner) return;
 
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const totalItems = carouselItems.length;
+        let currentIndex = 0;
+        let interval;
+
+        // Function to show the current slide and hide others
+        function showSlide(index) {
+            carouselItems.forEach(item => item.classList.remove('active'));
+            carouselItems[index].classList.add('active');
+        }
+    
+        // Function to go to the next slide
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            showSlide(currentIndex);
+        }
+    
+        // Function to go to the previous slide
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            showSlide(currentIndex);
+        }
+    
+        // Start the auto-slide interval
+        function startAutoSlide() {
+            interval = setInterval(nextSlide, 7000); // Change slide every 7 seconds
+        }
+    
+        // Stop the auto-slide interval
+        function stopAutoSlide() {
+            clearInterval(interval);
+        }
+    
+        // Initialize the carousel
+        showSlide(currentIndex);
+        startAutoSlide();
+    
+        // Handle next button click
+        document.getElementById('nextBtn').addEventListener('click', function () {
+            nextSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+    
+        // Handle previous button click
+        document.getElementById('prevBtn').addEventListener('click', function () {
+            prevSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+    }, [banner]);
+    
     return (
         <>
             { ! appLocalizer.khali_dabba ? 
@@ -101,66 +102,66 @@ export default function banner() {
                                 <ul className="carousel-list">
                                     <li className="carousel-item active">
                                         <div className="admin-pro-txt-items">
-                                            <h3>Double Opt-In {' '}</h3>
-                                            <p>Experience the power of Double Opt-In for our Stock Alert Form - Guaranteed precision in every notification!{' '}</p>
+                                            <h3>{__("Double Opt-In", "notifima")}</h3>
+                                            <p>{__("Experience the power of Double Opt-In for our Stock Alert Form - Guaranteed precision in every notification!", "notifima")}</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 target='_blank'
                                                 className="admin-btn btn-red"
                                             >
-                                                View Pricing
+                                                {__("View Pricing", "notifima")}
                                             </a>
                                         </div>
                                     </li>
                                     <li class="carousel-item">
                                         <div className="admin-pro-txt-items">
-                                            <h3>Your Subscription Hub{' '}</h3>
-                                            <p>Subscription Dashboard - Easily monitor and download lists of out-of-stock subscribers for seamless management.{' '}</p>
+                                            <h3>{__("Your Subscription Hub", "notifima")}</h3>
+                                            <p>{__("Subscription Dashboard - Easily monitor and download lists of out-of-stock subscribers for seamless management.", "notifima")}</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 target='_blank'
                                                 className="admin-btn btn-red"
                                             >
-                                                View Pricing
+                                                {__("View Pricing", "notifima")}
                                             </a>
                                         </div>
                                     </li>
                                     <li class="carousel-item">
                                         <div className="admin-pro-txt-items">
-                                            <h3>Mailchimp Bridge{' '}</h3>
-                                            <p>Seamlessly link WooCommerce out-of-stock subscriptions with Mailchimp for effective marketing.{' '}</p>
+                                            <h3>{__("Mailchimp Bridge", "notifima")}</h3>
+                                            <p>{__("Seamlessly link WooCommerce out-of-stock subscriptions with Mailchimp for effective marketing.", "notifima")}</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 target='_blank'
                                                 className="admin-btn btn-red"
                                             >
-                                                View Pricing
+                                                {__("View Pricing", "notifima")}
                                             </a>
                                         </div>
                                     </li>
                                     <li class="carousel-item">
                                         <div className="admin-pro-txt-items">
-                                            <h3>Unsubscribe Notifications{' '}</h3>
-                                            <p>User-Initiated Unsubscribe from In-Stock Notifications.{' '}</p>
+                                            <h3>{__("Unsubscribe Notifications", "notifima")}</h3>
+                                            <p>{__("User-Initiated Unsubscribe from In-Stock Notifications.", "notifima")}</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 target='_blank'
                                                 className="admin-btn btn-red"
                                             >
-                                                View Pricing
+                                                {__("View Pricing", "notifima")}
                                             </a>
                                         </div>
                                     </li>
                                     <li class="carousel-item">
                                         <div className="admin-pro-txt-items">
-                                            <h3>Ban Spam Emails {' '}</h3>
-                                            <p>Email and Domain Blacklist for Spam Prevention.{' '}</p>
+                                            <h3>{__("Ban Spam Emails", "notifima")}</h3>
+                                            <p>{__( "Email and Domain Blacklist for Spam Prevention.", "notifima" )}</p>
                                             <a
                                                 href={appLocalizer.pro_url}
                                                 target='_blank'
                                                 className="admin-btn btn-red"
                                             >
-                                                View Pricing
+                                                {__("View Pricing", "notifima")}
                                             </a>
                                         </div>
                                     </li>

@@ -14,7 +14,7 @@ const Export = () => {
         if (appLocalizer.khali_dabba) {
             axios({
                 method: "post",
-                url: `${ appLocalizer.apiUrl }/stockmanager/v1/all-products`,
+                url: `${ appLocalizer.apiUrl }/notifima/v1/all-products`,
                 headers: { 'X-WP-Nonce' : appLocalizer.nonce },
             }).then((response) => {
                 let parsedData = JSON.parse(response.data);
@@ -108,21 +108,21 @@ const Export = () => {
         <div className="admin-container">
             <div className='export-page'>
                 <div className="admin-page-title">
-                    <p>{ __( 'Export', 'woocommerce-stock-manager' ) }</p>
+                    <p>{ __( 'Export', 'notifima' ) }</p>
                     <button class="import-export-btn" >
-                        <Link to={ '?page=stock-manager#&tab=manage-stock' }>
+                        <Link to={ '?page=notifima#&tab=manage-stock' }>
                             <div className='wp-menu-image dashicons-before dashicons-arrow-left-alt'></div>
-                            { __( "Inventory Manager", "woocommerce-stock-manager" ) }
+                            { __( 'Inventory Manager', 'notifima' ) }
                         </Link>
                     </button>
                 </div>
                 <div className="export-section">
-                    <p>{ __( 'Download a CSV file containing stock data. Choose specific fields for CSV download.', 'woocommerce-stock-manager' ) }</p>
+                    <p>{ __( 'Download a CSV file containing stock data. Choose specific fields for CSV download.', 'notifima' ) }</p>
                     <div className='export-page-content'>
                         <div className='import-export-btn-section'>
-                            <p>{ __( 'Select fields for exports', 'woocommerce-stock-manager' ) }</p>
+                            <p>{ __( 'Select fields for exports', 'notifima' ) }</p>
                             <div>
-                                <button class="select-deselect-trigger" onClick={ handleSelectAll } >{ __( 'Select / Deselect All', 'woocommerce-stock-manager' ) }</button>
+                                <button class="select-deselect-trigger" onClick={ handleSelectAll } >{ __( 'Select / Deselect All', 'notifima' ) }</button>
                             </div>
                         </div>
                         <div className="export-list-section">
@@ -134,7 +134,7 @@ const Export = () => {
                             <div className='wp-menu-image dashicons-before dashicons-upload'></div>
                             {
                                 data &&
-                                <CSVLink enclosingCharacter={``} data={ getData(data) } headers={ getHeader() } filename={ 'Products.csv'} >{ __( 'Export CSV', 'woocommerce-stock-manager' ) }</CSVLink>
+                                <CSVLink enclosingCharacter={``} data={ getData(data) } headers={ getHeader() } filename={ 'Products.csv'} >{ __( 'Export CSV', 'notifima' ) }</CSVLink>
                             }
                         </button>
                     </div>

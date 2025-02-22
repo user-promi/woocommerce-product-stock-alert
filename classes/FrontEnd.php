@@ -1,6 +1,6 @@
 <?php
 
-namespace StockManager;
+namespace Notifima;
 defined( 'ABSPATH' ) || exit;
 
 class FrontEnd {
@@ -38,7 +38,7 @@ class FrontEnd {
      * @return void
      */
     function frontend_scripts() {
-        $frontend_script_path = SM()->plugin_url . 'frontend/js/';
+        $frontend_script_path = Notifima()->plugin_url . 'frontend/js/';
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
         $suffix = ''; /// Should be removed.
         $settings_array = Utill::get_form_settings_array();
@@ -58,14 +58,14 @@ class FrontEnd {
         if ( !empty( $button_settings[ 'button_border_redious' ] ) )
             $button_css .= "border-radius:" . $button_settings[ 'button_border_redious' ] . "px;";
 
-        $subscribe_button_html = '<button style="' . $button_css .'" class="stock-manager-button alert_button_hover" name="alert_button">' . $button_settings[ 'button_text' ] . '</button>';
+        $subscribe_button_html = '<button style="' . $button_css .'" class="notifima-button alert_button_hover" name="alert_button">' . $button_settings[ 'button_text' ] . '</button>';
         $unsubscribe_button_html = '<button class="unsubscribe-button" style="' . $button_css .'">' . $settings_array[ 'unsubscribe_button_text' ] . '</button>';
 
-        wp_register_script( 'stock_manager_frontend_js', $frontend_script_path . 'frontend' . $suffix . '.js', [ 'jquery', 'wp-element', 'wp-components' ], SM()->version, true );
+        wp_register_script( 'notifima_frontend_js', $frontend_script_path . 'frontend' . $suffix . '.js', [ 'jquery', 'wp-element', 'wp-components' ], Notifima()->version, true );
 
-        wp_localize_script( 'stock_manager_frontend_js', 'localizeData', [
+        wp_localize_script( 'notifima_frontend_js', 'localizeData', [
             'ajax_url' => admin_url( 'admin-ajax.php', 'relative' ), 
-            'nonce'  => wp_create_nonce( 'stock-manager-security-nonce' ), 
+            'nonce'  => wp_create_nonce( 'notifima-security-nonce' ), 
             'additional_fields' => apply_filters( 'woocommerce_stock_manager_form_additional_fields', [] ), 
             'button_html' => $subscribe_button_html, 
             'alert_success' => $settings_array[ 'alert_success' ], 
@@ -74,9 +74,9 @@ class FrontEnd {
             'ban_email_domain_text' => $settings_array[ 'ban_email_domain_text' ], 
             'ban_email_address_text' => $settings_array[ 'ban_email_address_text' ], 
             'double_opt_in_success' => $settings_array[ 'double_opt_in_success' ], 
-            'processing' => __( 'Processing...', 'woocommerce-stock-manager' ), 
-            'error_occurs' => __( 'Some error occurs', 'woocommerce-stock-manager' ), 
-            'try_again' => __( 'Please try again.', 'woocommerce-stock-manager' ), 
+            'processing' => __( 'Processing...', 'notifima' ), 
+            'error_occurs' => __( 'Some error occurs', 'notifima' ), 
+            'try_again' => __( 'Please try again.', 'notifima' ), 
             'unsubscribe_button' => $unsubscribe_button_html, 
             'alert_unsubscribe_message' => $settings_array[ 'alert_unsubscribe_message' ], 
             'recaptcha_enabled' => apply_filters( 'stock_manager_recaptcha_enabled', false )
@@ -84,7 +84,7 @@ class FrontEnd {
 
         if ( is_product() || is_shop() || is_product_category() ) {
             // Enqueue your frontend javascript from here
-            wp_enqueue_script( 'stock_manager_frontend_js' );
+            wp_enqueue_script( 'notifima_frontend_js' );
         }
     }
 
@@ -93,12 +93,12 @@ class FrontEnd {
      * @return void
      */
     function frontend_styles() {
-        $frontend_style_path = SM()->plugin_url . 'frontend/css/';
+        $frontend_style_path = Notifima()->plugin_url . 'frontend/css/';
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
         if ( function_exists( 'is_product' ) ) {
             if ( is_product() ) {
                 // Enqueue your frontend stylesheet from here
-                wp_enqueue_style( 'stock_manager_frontend_css', $frontend_style_path . 'frontend' . $suffix . '.css', [], SM()->version );
+                wp_enqueue_style( 'notifima_frontend_css', $frontend_style_path . 'frontend' . $suffix . '.css', [], Notifima()->version );
             } 
         } 
     } 
@@ -140,13 +140,13 @@ class FrontEnd {
 
         if ( empty( $productObj ) )
             return;
-        $guest_subscription_enabled = SM()->setting->get_setting( 'is_guest_subscriptions_enable' );
+        $guest_subscription_enabled = Notifima()->setting->get_setting( 'is_guest_subscriptions_enable' );
         $guest_subscription_enabled = is_array( $guest_subscription_enabled ) ? reset( $guest_subscription_enabled ) : false;
         if (!$guest_subscription_enabled && ! is_user_logged_in()) {
             return;
         }
 
-        $backorders_enabled = SM()->setting->get_setting( 'is_enable_backorders' );
+        $backorders_enabled = Notifima()->setting->get_setting( 'is_enable_backorders' );
         $backorders_enabled = is_array( $backorders_enabled ) ? reset( $backorders_enabled ) : false;
 
         $stock_status   = $productObj->get_stock_status();
@@ -263,7 +263,7 @@ class FrontEnd {
         if ( !empty( $button_settings[ 'button_border_radious' ] ) )
             $button_css .= "border-radius:" . esc_html( $button_settings[ 'button_border_radious' ] ) . "px;";
 
-        $button_html = '<button style="' . $button_css .'" class="stock-manager-button alert_button_hover" name="alert_button">' . esc_html( $button_settings[ 'button_text' ] ) . '</button>';
+        $button_html = '<button style="' . $button_css .'" class="notifima-button alert_button_hover" name="alert_button">' . esc_html( $button_settings[ 'button_text' ] ) . '</button>';
 
         $interested_person = get_post_meta( $variation ? $variation->get_id() : $product->get_id(), 'no_of_subscribers', true );
         $interested_person = ( isset( $interested_person ) && $interested_person > 0 ) ? $interested_person : 0;
@@ -271,7 +271,7 @@ class FrontEnd {
         $shown_interest_html = '';
         $shown_interest_text = esc_html( $settings_array[ 'shown_interest_text' ] );
 
-        $is_enable_no_interest = SM()->setting->get_setting( 'is_enable_no_interest' );
+        $is_enable_no_interest = Notifima()->setting->get_setting( 'is_enable_no_interest' );
         $is_enable_no_interest = is_array( $is_enable_no_interest ) ? reset( $is_enable_no_interest ) : false;
         
         if ( $is_enable_no_interest && $interested_person != 0 && $shown_interest_text ) {
@@ -301,9 +301,9 @@ class FrontEnd {
     public function display_product_lead_time( $product ){
         if ( empty( $product ) )
             return;
-        $display_lead_times  = SM()->setting->get_setting( 'display_lead_times' );
+        $display_lead_times  = Notifima()->setting->get_setting( 'display_lead_times' );
         if ( !empty($display_lead_times) && in_array($product->get_stock_status(), $display_lead_times) ) {
-            $lead_time_static_text = SM()->setting->get_setting( 'lead_time_static_text' );
+            $lead_time_static_text = Notifima()->setting->get_setting( 'lead_time_static_text' );
             return '<p>' . esc_html( $lead_time_static_text ) . '</p>';
         }
         return '';

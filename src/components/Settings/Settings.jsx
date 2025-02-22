@@ -63,8 +63,8 @@ const Settings = () => {
                     tabData={ settingsArray }
                     currentTab={ location.get( 'subtab' ) }
                     getForm={getForm}
-                    BannerSection = { ! appLocalizer.khali_dabba && BannerSection }
-                    prepareUrl={(subTab) => `?page=stock-manager#&tab=settings&subtab=${subTab}` }
+                    BannerSection = { BannerSection }
+                    prepareUrl={(subTab) => `?page=notifima#&tab=settings&subtab=${subTab}` }
                 />
             </SettingProvider>
         </>

@@ -1,26 +1,27 @@
 import './AdminFooter.scss';
+import { __ } from "@wordpress/i18n";
 
 const AdminFooter = () => {
 
     const supportLink = [
         {
-          title: "Get in touch with Support",
+          title: __("Get in touch with Support", "notifima"),
           icon: "mail",
-          description: "Reach out to the support team for assistance or guidance.",
+          description: __("Reach out to the support team for assistance or guidance.", "notifima"),
           link: "https://multivendorx.com/contact-us/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager",
         },
         {
-          title: "Explore Documentation",
-          icon: "submission-message",
-          description: "Understand the plugin and its settings.",
-          link: "https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager",
+            title: __("Explore Documentation", "notifima"),
+            icon: "submission-message",
+            description: __("Understand the plugin and its settings.", "notifima"),
+            link: "https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager",
         },
         {
-          title: "Contribute Here",
-          icon: "support",
-          description: "To participation in product enhancement.",
-          link: "https://github.com/multivendorx/woocommerce-product-stock-alert/issues",
-        },
+            title: __("Contribute Here", "notifima"),
+            icon: "support",
+            description: __("Participate in product enhancement.", "notifima"),
+            link: "https://github.com/multivendorx/woocommerce-product-stock-alert/issues",
+        }
       ];
 
     return (

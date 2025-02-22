@@ -5,9 +5,9 @@ import { useState, useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import axios from 'axios'; // Import axios
 
-registerBlockType('woocommerce-stock-manager/stock-notification-block', {
-    title: __('Stock Notification Block', 'woocommerce-stock-manager'),
-    description: __('This block can be connected to WooCommerce Out-of-Stock and Backorder products to provide a stock notification form for users.', 'woocommerce-stock-manager'),
+registerBlockType('notifima/stock-notification-block', {
+    title: __('Stock Notification Block', 'notifima'),
+    description: __('This block can be connected to WooCommerce Out-of-Stock and Backorder products to provide a stock notification form for users.', 'notifima'),
     category: 'woocommerce',
     icon: 'clipboard',
     supports: {
@@ -22,7 +22,7 @@ registerBlockType('woocommerce-stock-manager/stock-notification-block', {
 
     edit: ({ attributes, setAttributes }) => {
         const blockProps = useBlockProps();
-        const [formHtml, setFormHtml] = useState(__('Loading form...', 'woocommerce-stock-manager'));
+        const [formHtml, setFormHtml] = useState(__('Loading form...', 'notifima'));
 
         // Select the product ID from the WooCommerce Single Product Block
         const productId = useSelect((select) => {
@@ -45,10 +45,10 @@ registerBlockType('woocommerce-stock-manager/stock-notification-block', {
             if (productId) {
                 axios.get(`${stockNotificationBlock.apiUrl}/${stockNotificationBlock.restUrl}/stock-notification-form?product_id=${productId}`)
                     .then((response) => {
-                        setFormHtml(response.data.html || __('Failed to load form.', 'woocommerce-stock-manager'));
+                        setFormHtml(response.data.html || __('Failed to load form.', 'notifima'));
                     });
             } else {
-                setFormHtml(__('No product selected.', 'woocommerce-stock-manager'));
+                setFormHtml(__('No product selected.', 'notifima'));
             }
         }, [productId]);
 

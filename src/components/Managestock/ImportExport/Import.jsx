@@ -16,7 +16,7 @@ const Import = () => {
         if ( appLocalizer.khali_dabba ) {
             axios({
                 method: "post",
-                url: `${ appLocalizer.apiUrl }/stockmanager/v1/all-products`,
+                url: `${ appLocalizer.apiUrl }/notifima/v1/all-products`,
                 headers: { 'X-WP-Nonce' : appLocalizer.nonce },
             } ).then( ( response ) => {
                 let parsedData = JSON.parse( response.data );
@@ -86,7 +86,7 @@ const Import = () => {
                 let csvData = processCSV(e.target.result);
                 axios({
                     method: 'post',
-                    url: `${ appLocalizer.apiUrl }/stockmanager/v1/import-products`,
+                    url: `${ appLocalizer.apiUrl }/notifima/v1/import-products`,
                     headers: { 'X-WP-Nonce' : appLocalizer.nonce, 'Content-Type': 'application/json' },
                     data: { product: csvData }
                 })
@@ -102,11 +102,11 @@ const Import = () => {
         <div className="admin-container">
             <div className='import-page'>
                 <div className="admin-page-title">
-                    <p>{ __( 'Import', 'woocommerce-stock-manager' ) }</p>
+                    <p>{ __( 'Import', 'notifima' ) }</p>
                     <button class="import-export-btn" >
-                        <Link to={ '?page=stock-manager#&tab=manage-stock' }>
+                        <Link to={ '?page=notifima#&tab=manage-stock' }>
                             <div className='wp-menu-image dashicons-before dashicons-arrow-left-alt'></div>
-                            { __( "Inventory Manager", "woocommerce-stock-manager" ) }
+                            { __( "Inventory Manager", "notifima" ) }
                         </Link>
                     </button>
                     {
@@ -118,10 +118,10 @@ const Import = () => {
                     }
                 </div>
                 <div className="import-section">
-                    <p>{ __( 'Upload your CSV file to update stock data for existing products. The file must match the specified format a sample CSV is available for reference.', 'woocommerce-stock-manager' ) }
+                    <p>{ __( 'Upload your CSV file to update stock data for existing products. The file must match the specified format a sample CSV is available for reference.', 'notifima' ) }
                     {
                         data &&
-                        <CSVLink enclosingCharacter={ `` } data={ getData() } headers={ header } filename={ 'Sample.csv' }>{ __( 'Download Sample CSV', 'woocommerce-stock-manager' ) }</CSVLink>
+                        <CSVLink enclosingCharacter={ `` } data={ getData() } headers={ header } filename={ 'Sample.csv' }>{ __( 'Download Sample CSV', 'notifima' ) }</CSVLink>
                     }
                     </p>
                     <div className='import-table'>                        
@@ -131,7 +131,7 @@ const Import = () => {
                             <input className='import-input' onChange={ handleFileChange } type="file" name="csv_file" accept=".csv" />
                         </div>
                         <div className='import-upload-btn-section'>
-                            <button onClick={ handleUpload } class="import-btn">{ __( 'Upload CSV', 'woocommerce-stock-manager' ) }</button>
+                            <button onClick={ handleUpload } class="import-btn">{ __( 'Upload CSV', 'notifima' ) }</button>
                         </div>
                     </div>
                 </div>
