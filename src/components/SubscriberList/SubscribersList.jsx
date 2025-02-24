@@ -211,20 +211,6 @@ export default function SubscribersList() {
                 {__('Apply',)}
               </button>
             </div>
-
-            {openModal &&
-              <div className="error-modal">
-                <div className="modal-wrapper">
-                  <div className="icons">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                  </div>
-                  <p>{modalDetails}</p>
-                  <button onClick={() => setOpenModal(false)} className="button-close">Close</button>
-                </div>
-              </div>
-            }
           </>
         );
       },
@@ -395,6 +381,14 @@ export default function SubscribersList() {
         </div>
       ) : (
         <div className="admin-subscriber-list">
+          {openModal && modalDetails &&
+            <div className="notice notice-error error-modal">
+            <div className="modal-wrapper">
+              <p>{modalDetails}</p>
+              <i onClick={() => setOpenModal(false)} className="admin-font adminLib-cross"></i>
+            </div>
+            </div>
+          }
           <div className="admin-page-title">
             <p>{__("Subscriber List", "notifima")}</p>
             <div className="download-btn-subscriber-list">

@@ -164,7 +164,14 @@ div.subscriber-img {
 .unsubscribed {
   color: red;
 }
-
+.notice-error.error-modal{
+  margin-bottom: 1rem;
+}
+.modal-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 @media screen and (max-width: 46.0625rem) {
   .filter-wrapper .wrap-bulk-all-date > div{
