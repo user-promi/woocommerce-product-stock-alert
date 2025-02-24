@@ -10,7 +10,7 @@ class Utill {
      * Function to console and debug errors.
      */
     public static function log( $str ) {
-        $file = Notifima()->plugin_path . 'log/woo-stock-manager.log';
+        $file = Notifima()->plugin_path . 'log/woo-notifima.log';
 
         if ( file_exists( $file ) ) {
             // Open the file to get existing content

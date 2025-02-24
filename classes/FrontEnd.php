@@ -205,7 +205,7 @@ class FrontEnd {
         $alert_fields = apply_filters( 'stock_manager_fileds_array', [ 
             'alert_email' => [ 
                 'type' => 'text', 
-                'class'=> 'stock-manager-email', 
+                'class'=> 'notifima-email', 
                 'value'=> $user_email, 
                 'placeholder' => $placeholder
             ]

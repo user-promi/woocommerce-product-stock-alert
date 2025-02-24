@@ -72,7 +72,7 @@ jQuery(function ($) {
      */
     function processForm(form) {
         // Get data from form.
-        let customerEmail   = form.find('.stock-manager-email').val();
+        let customerEmail   = form.find('.notifima-email').val();
         let productId       = form.find('.current-product-id').val();
         let variationId     = form.find('.current-variation-id').val();
         let productTitle    = form.find('.current-product-name').val();
