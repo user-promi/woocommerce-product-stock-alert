@@ -66,7 +66,7 @@ class AdminEmail extends \WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return apply_filters( 'woocommerce_email_subject_stock_manager', __( 'A Customer has subscribed to a product on {site_title} ', 'notifima' ), $this->object );
+		return apply_filters( 'woocommerce_email_subject_notifima', __( 'A Customer has subscribed to a product on {site_title} ', 'notifima' ), $this->object );
 	} 
 
 	/**
@@ -76,7 +76,7 @@ class AdminEmail extends \WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return apply_filters( 'woocommerce_email_heading_stock_manager', __( 'Welcome to {site_title} ', 'notifima' ), $this->object );
+		return apply_filters( 'woocommerce_email_heading_notifima', __( 'Welcome to {site_title} ', 'notifima' ), $this->object );
 	} 
 
 	/**

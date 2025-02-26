@@ -41,6 +41,23 @@ class DeprecatedFilterHooks extends \WC_Deprecated_Hooks {
 		'stock_manager_new_subscriber_added' 					=> 'woo_stock_manager_new_subscriber_added', 
 		'stock_manager_accept_email' 							=> 'woo_stock_manager_accept_email',
 		'stock_manager_add_vendor'								=> 'woo_stock_manager_add_vendor',
+		'is_notifima_pro_inactive'								=> 'is_stock_manager_pro_inactive',
+		'notifima_settings'										=> 'stock_manager_settings',
+		'notifima_do_complete_additional_task'					=> 'stock_manager_do_complete_additional_task',
+		'notifima_is_accept_email_address'						=> 'stock_manager_is_accept_email_address',
+		'notifima_new_subscriber_added'							=> 'stock_manager_new_subscriber_added',
+		'notifima_accept_email'									=> 'stock_manager_accept_email',
+		'notifima_form_additional_fields'						=> 'woocommerce_stock_manager_form_additional_fields',
+		'notifima_recaptcha_enabled'							=> 'stock_manager_recaptcha_enabled',
+		'notifima_form_fileds_separator'						=> 'stock_manager_form_fileds_separator',
+		'notifima_fileds_array'									=> 'stock_manager_fileds_array',
+		'notifima_display_product_lead_time'					=> 'stock_manager_display_product_lead_time',
+		'notifima_register_settings_keys'						=> 'stockmanager_register_settings_keys',
+		'notifima_add_vendor'									=> 'stock_manager_add_vendor',
+		'woocommerce_email_subject_notifima'					=> 'woocommerce_email_subject_stock_manager',
+		'woocommerce_email_heading_notifima'					=> 'woocommerce_email_heading_stock_manager',
+		'notifima_product_types'								=> 'stock_manager_product_types',
+		'notifima_subscribers_list_data'						=> 'stock_alert_subscribers_list_data',
 	];
 
 	/**
@@ -78,6 +95,24 @@ class DeprecatedFilterHooks extends \WC_Deprecated_Hooks {
 		'woo_stock_manager_pro_settings_lists'					=> '2.4.2',
 		'woo_stock_manager_add_vendor'							=> '2.4.2',
 		'product_backin_stock_send_admin'						=> '2.4.2',
+		'is_stock_manager_pro_inactive'							=> '2.5.17',
+		'stock_manager_settings'								=> '2.5.17',
+		'stock_manager_do_complete_additional_task'				=> '2.5.17',
+		'stock_manager_is_accept_email_address'					=> '2.5.17',
+		'stock_manager_new_subscriber_added'					=> '2.5.17',
+		'stock_manager_accept_email'							=> '2.5.17',
+		'woocommerce_stock_manager_form_additional_fields'		=> '2.5.17',
+		'stock_manager_recaptcha_enabled'						=> '2.5.17',
+		'stock_manager_form_fileds_separator'					=> '2.5.17',
+		'stock_manager_fileds_array'							=> '2.5.17',
+		'stock_manager_display_product_lead_time'				=> '2.5.17',
+		'stockmanager_register_settings_keys'					=> '2.5.17',
+		'stock_manager_add_vendor'								=> '2.5.17',
+		'woocommerce_email_subject_stock_manager'				=> '2.5.17',
+		'woocommerce_email_heading_stock_manager'				=> '2.5.17',
+		'stock_manager_product_types'							=> '2.5.17',
+		'stock_alert_subscribers_list_data'						=> '2.5.17',
+
 	 ];
 
 	/**

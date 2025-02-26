@@ -35,7 +35,7 @@ class Admin {
     * Add options page
     */
     public function add_settings_page() {
-        $pro_sticker = apply_filters( 'is_stock_manager_pro_inactive', true ) ? 
+        $pro_sticker = apply_filters( 'is_notifima_pro_inactive', true ) ? 
         '<span 
             class="notifima-pro-tag"
             style="
@@ -192,7 +192,7 @@ class Admin {
         if ( get_current_screen()->id == 'toplevel_page_notifima' ) {
             wp_enqueue_script( 'notifima-script', Notifima()->plugin_url . 'build/index.js', [ 'wp-element', 'wp-i18n', 'react-jsx-runtime' ], Notifima()->version, true );
             wp_set_script_translations( 'notifima-script', 'notifima' );
-            wp_localize_script( 'notifima-script', 'appLocalizer', apply_filters( 'stock_manager_settings', [ 
+            wp_localize_script( 'notifima-script', 'appLocalizer', apply_filters( 'notifima_settings', [ 
                 'apiUrl'                    => untrailingslashit( get_rest_url() ),
                 'restUrl'                   => 'notifima/v1',
                 'nonce'                     => wp_create_nonce( 'wp_rest' ),

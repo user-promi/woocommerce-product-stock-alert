@@ -15,7 +15,7 @@ class FrontEnd {
         // Hover style
         add_action( 'wp_head', [ $this, 'frontend_hover_styles' ] );
         
-        add_filter( 'stock_manager_display_product_lead_time', [ $this, 'display_product_lead_time' ], 10 );
+        add_filter( 'notifima_display_product_lead_time', [ $this, 'display_product_lead_time' ], 10 );
     }
 
     /**
@@ -66,7 +66,7 @@ class FrontEnd {
         wp_localize_script( 'notifima_frontend_js', 'localizeData', [
             'ajax_url' => admin_url( 'admin-ajax.php', 'relative' ), 
             'nonce'  => wp_create_nonce( 'notifima-security-nonce' ), 
-            'additional_fields' => apply_filters( 'woocommerce_stock_manager_form_additional_fields', [] ), 
+            'additional_fields' => apply_filters( 'notifima_form_additional_fields', [] ), 
             'button_html' => $subscribe_button_html, 
             'alert_success' => $settings_array[ 'alert_success' ], 
             'alert_email_exist' => $settings_array[ 'alert_email_exist' ], 
@@ -79,7 +79,7 @@ class FrontEnd {
             'try_again' => __( 'Please try again.', 'notifima' ), 
             'unsubscribe_button' => $unsubscribe_button_html, 
             'alert_unsubscribe_message' => $settings_array[ 'alert_unsubscribe_message' ], 
-            'recaptcha_enabled' => apply_filters( 'stock_manager_recaptcha_enabled', false )
+            'recaptcha_enabled' => apply_filters( 'notifima_recaptcha_enabled', false )
         ]);
 
         if ( is_product() || is_shop() || is_product_category() ) {
@@ -193,7 +193,7 @@ class FrontEnd {
         } 
         $stock_manager_fields_array = [];
         $stock_manager_fields_html = $user_email = '';
-        $separator = apply_filters( 'stock_manager_form_fileds_separator', '<br>' );
+        $separator = apply_filters( 'notifima_form_fileds_separator', '<br>' );
         $settings_array = Utill::get_form_settings_array();
         $button_settings = $settings_array[ 'customize_btn' ];
 
@@ -202,7 +202,7 @@ class FrontEnd {
             $user_email = $current_user->data->user_email;
         } 
         $placeholder = $settings_array[ 'email_placeholder_text' ];
-        $alert_fields = apply_filters( 'stock_manager_fileds_array', [ 
+        $alert_fields = apply_filters( 'notifima_fileds_array', [ 
             'alert_email' => [ 
                 'type' => 'text', 
                 'class'=> 'notifima-email', 
@@ -279,7 +279,7 @@ class FrontEnd {
             $shown_interest_html = '<p>' . $shown_interest_text . '</p>';
         } 
 
-        $lead_text_html = apply_filters( 'stock_manager_display_product_lead_time', $variation ? $variation : $product );
+        $lead_text_html = apply_filters( 'notifima_display_product_lead_time', $variation ? $variation : $product );
         return
         $lead_text_html .
         '<div class="stock-notifier-subscribe-form" style="border-radius:10px;">

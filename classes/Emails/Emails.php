@@ -69,7 +69,7 @@ class Emails extends \WC_Email {
 	 * @return string
 	 */
 	public function get_default_subject() {
-		return apply_filters( 'woocommerce_email_subject_stock_manager', __( 'Your Subscribed product on {site_title} is available now', 'notifima' ), $this->object );
+		return apply_filters( 'woocommerce_email_subject_notifima', __( 'Your Subscribed product on {site_title} is available now', 'notifima' ), $this->object );
 	} 
 
 	/**
@@ -79,7 +79,7 @@ class Emails extends \WC_Email {
 	 * @return string
 	 */
 	public function get_default_heading() {
-		return apply_filters( 'woocommerce_email_heading_stock_manager', __( 'Welcome to {site_title} ', 'notifima' ), $this->object );
+		return apply_filters( 'woocommerce_email_heading_notifima', __( 'Welcome to {site_title} ', 'notifima' ), $this->object );
 	} 
 
 	/**

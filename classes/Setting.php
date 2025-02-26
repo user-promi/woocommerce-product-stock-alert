@@ -64,7 +64,7 @@ class Setting {
          * Filter for register settings key's
          * @var array setting keys
          */
-        $this->settings_keys = apply_filters( 'stockmanager_register_settings_keys', [
+        $this->settings_keys = apply_filters( 'notifima_register_settings_keys', [
             'stockmanager_extra_settings',
             'woo_stock_manager_appearance_tab_settings',
             'woo_stock_manager_form_submission_tab_settings',

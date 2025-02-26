@@ -131,7 +131,7 @@ class Notifima {
         $this->load_plugin_textdomain();
         $this->init_classes();
         
-        do_action( 'stock_manager_loaded' );
+        do_action( 'notifima_loaded' );
     }
     
     /**
@@ -249,7 +249,7 @@ class Notifima {
             '<a href="https://multivendorx.com/support-forum/forum/product-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Support', 'notifima' ) . '</a>', 
             '<a href="https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Docs', 'notifima' ) . '</a>'
         ];
-        if ( apply_filters( 'is_stock_manager_pro_inactive', true ) ) {
+        if ( apply_filters( 'is_notifima_pro_inactive', true ) ) {
             $links[ 'go_pro' ] = '<a href="' . NOTIFIMA_PRO_SHOP_URL . '" class="notifima-pro-plugin" target="_blank">' . __( 'Get Pro', 'notifima' ) . '</a>';
         }
         return array_merge( $plugin_links, $links );
