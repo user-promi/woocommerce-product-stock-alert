@@ -246,8 +246,8 @@ class Notifima {
     public static function stock_manager_settings( $links ) {
         $plugin_links = [ 
             '<a href="' . admin_url( 'admin.php?page=notifima#&tab=settings&subtab=general' ) . '">' . __( 'Settings', 'notifima' ) . '</a>', 
-            '<a href="https://multivendorx.com/support-forum/forum/product-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Support', 'notifima' ) . '</a>', 
-            '<a href="https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">' . __( 'Docs', 'notifima' ) . '</a>'
+            '<a href="https://notifima.com/support/" target="_blank">' . __( 'Support', 'notifima' ) . '</a>', 
+            '<a href="https://notifima.com/docs/" target="_blank">' . __( 'Docs', 'notifima' ) . '</a>'
         ];
         if ( apply_filters( 'is_notifima_pro_inactive', true ) ) {
             $links[ 'go_pro' ] = '<a href="' . NOTIFIMA_PRO_SHOP_URL . '" class="notifima-pro-plugin" target="_blank">' . __( 'Get Pro', 'notifima' ) . '</a>';

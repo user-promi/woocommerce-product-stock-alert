@@ -8,13 +8,13 @@ const AdminFooter = () => {
           title: __("Get in touch with Support", "notifima"),
           icon: "mail",
           description: __("Reach out to the support team for assistance or guidance.", "notifima"),
-          link: "https://multivendorx.com/contact-us/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager",
+          link: "https://notifima.com/contact-us/",
         },
         {
             title: __("Explore Documentation", "notifima"),
             icon: "submission-message",
             description: __("Understand the plugin and its settings.", "notifima"),
-            link: "https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager",
+            link: "https://notifima.com/docs/",
         },
         {
             title: __("Contribute Here", "notifima"),

@@ -23,7 +23,7 @@ const Support = () => {
       },
       {
           question: __("Do you support Google reCaptcha for the out-of-stock form?", "notifima"),
-          answer: __('Yes, <a href="https://multivendorx.com/woocommerce-product-stock-manager-notifier-pro/?utm_source=wpadmin&utm_medium=pluginsettings&utm_campaign=stockmanager" target="_blank">Product Stock Manager & Notifier Pro</a> has support for reCaptcha.', "notifima"),
+          answer: __('Yes, <a href="https://notifima.com/pricing/" target="_blank">Product Stock Manager & Notifier Pro</a> has support for reCaptcha.', "notifima"),
           open: false,
       },
   ]);  
